@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .banner-left {
+            position: absolute;
+            z-index: 99;
+            height: 100%;
+            width: 15%;
+            left: 0;
+            top: 0;
+            background: url('images/left_banner.png') no-repeat right top;
+            background-size: auto 100%;
+        }
+
+        .banner-right {
+            position: absolute;
+            z-index: 99;
+            height: 100%;
+            width: 15%;
+            right: 0;
+            top: 0;
+            background: url('images/right_banner.png') no-repeat left top;
+            background-size: auto 100%;
+        }
+
+        .banner-footer {
+            position: absolute;
+            z-index: 99;
+            /*height: 100%;*/
+            width: 100%;
+            bottom: 0;
+            background: url('images/fotter_banner.jpg') no-repeat left top;
+            background-size: auto 100%;
+        }
+
+        .banner-header {
+            background-color: #0b494f;
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+         <!--<header class="banner-header" role="banner"></header>-->
+         <div class="row">
+             <!--<div class="banner-left">&nbsp;</div>-->
+             <div class="col-md-8 order-md-1">
+                 <div class="row">
+                     <h4 class="d-flex justify-content-between align-items-center mb-3">
+                         <span class="text-muted">URL : </span>
+                     </h4>
+                     <input type="text" class="form-control" id="IP" placeholder="" value="" required="">
+                 </div>
+                 <div class="row">
+                     <div class="d-block my-3">
+                         <div class="custom-control custom-radio order-md-1">
+                             <input id="Search" name="Search" type="radio" class="custom-control-input" required="">
+                             <label class="custom-control-label" for="debit">Search Page</label>
+                         </div>
+                         <div class="custom-control custom-radio order-md-2">
+                             <input id="Product" name="Product" type="radio" class="custom-control-input" checked="" required="">
+                             <label class="custom-control-label" for="credit">Product Page</label>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-md-4 order-md-2">
+                 <h4 class="d-flex justify-content-between align-items-center mb-3">
+                     <span class="text-muted">Proxy </span>
+                 </h4>
+                 <ul class="list-group">
+                     <li class="list-group-item d-flex justify-content-between lh-condensed">
+                         <div>
+                             <label>IP :</label>
+                             <input type="text" class="form-control" id="IP" placeholder="" value="" required="">
+                         </div>
+                     </li>
+                     <li class="list-group-item d-flex justify-content-between lh-condensed">
+                         <div>
+                             <label>Username :</label>
+                             <input type="text" class="form-control" id="Username" placeholder="" value="" required="">
+                         </div>
+
+                     </li>
+                     <li class="list-group-item d-flex justify-content-between lh-condensed">
+                         <div>
+                             <label>Password :</label>
+                             <input type="text" class="form-control" id="Password" placeholder="" value="" required="">
+                         </div>
+                     </li>
+                 </ul>
+             </div>
+             <!--<div class="banner-right">&nbsp;</div>-->
+         </div>
+     </div>
+
+
+</body>
+</html>
