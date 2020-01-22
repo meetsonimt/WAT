@@ -1,0 +1,3 @@
+Filter out the urls(requests made), if the terms are present in it.
+Title in meta contains search term in most of the sites.
+keywords in meta contains search term in most of the sites.
