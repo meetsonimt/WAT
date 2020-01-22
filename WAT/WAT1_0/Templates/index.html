@@ -4,27 +4,30 @@
     <title></title>
     <meta charset="utf-8" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <!--<script src="/scripts/custom.js"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <style>
         .banner-left {
-            position: absolute;
             z-index: 99;
             height: 100%;
-            width: 15%;
+            width: 100%;
             left: 0;
             top: 0;
             background: url('images/left_banner.png') no-repeat right top;
-            background-size: auto 100%;
+            background-size: 100%;
         }
 
         .banner-right {
-            position: absolute;
             z-index: 99;
             height: 100%;
-            width: 15%;
+            width: 100%;
             right: 0;
             top: 0;
             background: url('images/right_banner.png') no-repeat left top;
-            background-size: auto 100%;
+            background-size: 100%;
         }
 
         .banner-footer {
@@ -34,69 +37,128 @@
             width: 100%;
             bottom: 0;
             background: url('images/fotter_banner.jpg') no-repeat left top;
-            background-size: auto 100%;
+            background-size: 100%;
         }
 
         .banner-header {
-            background-color: #0b494f;
+            position: fixed;
+            z-index: 99;
+            height: 10%;
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        .white-font {
+            color: white !important;
+        }
+
+        .background-color {
+            background-color: #004a52;
+            color: white !important;
+        }
+        .form-inline label{
+            display: inline;
         }
     </style>
 </head>
-<body>
-     <div class="container">
+<body class="background-color">
+     <div class="container-fluid">
          <!--<header class="banner-header" role="banner"></header>-->
          <div class="row">
+            <div class="col-sm-2"><div class="banner-left">&nbsp;</div></div>
              <!--<div class="banner-left">&nbsp;</div>-->
-             <div class="col-md-8 order-md-1">
-                 <div class="row">
-                     <h4 class="d-flex justify-content-between align-items-center mb-3">
-                         <span class="text-muted">URL : </span>
-                     </h4>
-                     <input type="text" class="form-control" id="IP" placeholder="" value="" required="">
-                 </div>
-                 <div class="row">
-                     <div class="d-block my-3">
-                         <div class="custom-control custom-radio order-md-1">
-                             <input id="Search" name="Search" type="radio" class="custom-control-input" required="">
-                             <label class="custom-control-label" for="debit">Search Page</label>
-                         </div>
-                         <div class="custom-control custom-radio order-md-2">
-                             <input id="Product" name="Product" type="radio" class="custom-control-input" checked="" required="">
-                             <label class="custom-control-label" for="credit">Product Page</label>
-                         </div>
-                     </div>
+             <div class="col-sm-5">
+                <div class="row">
+                    <div class="input-group mb-3">
+                        <label class="col-form-label" for="URL">URL</label>
+                        <input type="text" class="form-control input-group-append" id="URL" placeholder="URL">
+                        <input type="text" class="form-control input-group-append" id="term" placeholder="Term">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary white-font btn-success" type="button" id="goBtn">GO</button>
+                        </div>
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="searchRadio" name="inlineDefaultRadiosExample">
+                        <label class="custom-control-label" for="searchRadio">Search Page</label>
+                      </div>
+                      
+                      <!-- Default inline 2-->
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="productRadio" name="inlineDefaultRadiosExample">
+                        <label class="custom-control-label" for="productRadio">Product Page</label>
+                      </div>
                  </div>
              </div>
-             <div class="col-md-4 order-md-2">
-                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                     <span class="text-muted">Proxy </span>
-                 </h4>
-                 <ul class="list-group">
-                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                         <div>
-                             <label>IP :</label>
-                             <input type="text" class="form-control" id="IP" placeholder="" value="" required="">
-                         </div>
-                     </li>
-                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                         <div>
-                             <label>Username :</label>
-                             <input type="text" class="form-control" id="Username" placeholder="" value="" required="">
-                         </div>
-
-                     </li>
-                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                         <div>
-                             <label>Password :</label>
-                             <input type="text" class="form-control" id="Password" placeholder="" value="" required="">
-                         </div>
-                     </li>
-                 </ul>
+             <div class="col-sm-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="IsProxy" id="proxyCheck">
+                            <label class="form-check-label" for="proxyCheck">IsProxy</label>
+                          </div>
+                    </div>
+                </div>
+                <div class="proxy">
+                        <div class="row form-inline">
+                            <div class="col-md-4">
+                                <label class="text-left" for="IP">IP:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Enter IP" id="IP">
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <div class="col-md-4">
+                                <label class="text-left" for="UserName">UserName:</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="Enter UserName" id="UserName">
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <div class="col-md-4">
+                                <label class="text-left" for="Password">Password:</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="Enter Password" id="Password">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2"><div class="banner-right">&nbsp;</div></div>
              </div>
+             <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <h2>sdfsdd</h2>
+               </div>
              <!--<div class="banner-right">&nbsp;</div>-->
          </div>
-     </div>
+        </div>
 
+<script>
+    $(document).ready(function(){
+        $("#proxyCheck").click(function(){
+            $(".proxy").toggle(500);
+        });
 
+        $('#searchRadio').on('change', function() {
+            if ($(this).is(':checked') ) {
+                $("#term").show();
+            }
+        });
+        $('#productRadio').on('change', function() {
+            if ($(this).is(':checked') ) {
+                $("#term").hide();
+            }
+        });
+    });
+    $(document).ready(function(){
+        $(".proxy").hide();
+        $("#term").hide();
+    });
+</script>
 </body>
 </html>
