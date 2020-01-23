@@ -94,26 +94,29 @@
         </div>
         <div class="col-sm-2"></div>
     </nav>
+    <form method="GET">
     <div class="container" >        
-        <div class="row">           
+        <div class="row">  
+           
             <div class="col-sm-12">
                 <div class="row">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">URL</span>
-                        <input type="text" class="form-control input-group-append" id="URL" placeholder="URL">
-                        <input type="text" class="form-control input-group-append" id="term" placeholder="Term" style="display: none">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary white-font btn-success" type="button" id="goBtn">GO</button>
+                        <input type="text" class="form-control input-group-append" id="URL" placeholder="URL" name="URL">
+                        <input type="text" class="form-control input-group-append" id="term" placeholder="Term"  name ="term" style="display: none">
+                        <div class="input-group-append">                   
+                            <input type="submit" value="GO" class="btn btn-outline-secondary white-font btn-success" id="goBtn"/>
                         </div>
                     </div>
                 </div>
+            </form>  
                 <div class="row">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="searchRadio" name="inlineDefaultRadiosExample">
+                        <input type="radio" class="custom-control-input" id="searchRadio" name="searchRadio">
                         <label class="custom-control-label" for="searchRadio">Search Page</label>
                     </div>                    
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="productRadio" name="inlineDefaultRadiosExample">
+                        <input type="radio" class="custom-control-input" id="productRadio" name="productRadio">
                         <label class="custom-control-label" for="productRadio">Product Page</label>
                     </div>
                 </div>
@@ -161,6 +164,19 @@
             </div>
         </div>
     </div>    <div class="footer-div"></div>
+
+    {% if url %}
+    Your Url Is: {{ url }}<br/>
+    {%if term %}
+    Your Term Is : {{term}}<br/>
+    {%endif%}
+    {%if IsSearch %}
+    You are searching : {{IsSearch}}<br/>
+    {%endif%}
+    {%if ISMonitor %}
+    You are Monitoring : {{ISMonitor}}<br/>
+    {%endif%}
+    {% endif %}
     <script>
         $(document).ready(function () {
             $("#proxyCheck").click(function () {
