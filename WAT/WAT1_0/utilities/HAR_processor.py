@@ -5,6 +5,7 @@ import time
 import json
 from haralyzer import HarParser, HarPage
 from selenium import webdriver
+import pprint
 
 class HttpTrafficHAR:
     def __init__(self):
@@ -20,24 +21,39 @@ class HttpTrafficHAR:
         server.start()
         time.sleep(1)
         proxy = server.create_proxy()
+        #proxy.new_har('req',options={'captureHeaders': True,'captureContent':True})
         time.sleep(1)
         profile = webdriver.FirefoxProfile()
         selenium_proxy = proxy.selenium_proxy()
         profile.set_proxy(selenium_proxy)
         driver = webdriver.Firefox(firefox_profile=profile)
-        proxy.new_har(term)
+        proxy.new_har(term,options={'captureHeaders': True,'captureContent':True})
         driver.get(url)# replace with url
-        #json.loads(proxy.har)['log']
+        with open('data.txt', 'w') as outfile:
+            json.dump(proxy.har, outfile)
+        results = []
+        #print(type(proxy.har))
         #har_parser = HarParser(json.loads(str(proxy.har).replace("\'","\"")))
-        har_data = json.loads(str(proxy.har).replace("\'","\""))
+        #har_data = json.loads(str(proxy.har).replace("\'","\""))
+        har_data = proxy.har# json.loads(proxy.har)
         server.stop()
         driver.quit()
-        return har_data
-        #print(har_data)
-        #for h in har_data['log']['entries']:
-        #    print(h)
+        #return har_data
+        #pprint.pprint(proxy.har)
+        #with open('data.txt', 'w') as outfile:
+        #    json.dump(proxy.har, outfile)
+        results = []
+        for h in har_data['log']['entries']:
+            if term in h['request']['url']:
+                results.append({
+                    'request': h['request'],
+                    'response': h['response'],
+                    'content': h['response']['content']['text']
+                })
+        print("found matching requests:")
+        pprint.pprint(results)
         #print (json.loads(proxy.har)['log']) # returns a HAR JSON blob       
 
 myobj = HttpTrafficHAR()
-a = myobj.get_HAR("https://www.snapdeal.com/search?keyword=usb","usb")
-print(a)
+a = myobj.get_HAR("https://docs.python.org/3/reference/lexical_analysis.html","lexical")
+#print(a)
