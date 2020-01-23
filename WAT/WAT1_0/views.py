@@ -8,15 +8,16 @@ def index(request):
     term = None
     if request.GET.get('URL'):
         url = request.GET.get('URL')
-        radio_value = request.GET.get('searchRadio')
-        if radio_value:
+        radio_value = request.GET.get('inlineDefaultRadiosExample')
+        if radio_value == "searchRadio":
             term = request.GET.get('term')
-        radio_value1 = request.GET.get('productRadio')
+        radio_value1 = request.GET.get('inlineDefaultRadiosExample')
         context.update({
             'url' : url,
             'IsSearch' : radio_value,
-            'ISRadio' : radio_value1,
-            'term' : term
+            'ISMonitor' : radio_value1,
+            'term' : term,
+            'radio_value' : radio_value
         })
     return render(request,"index.html",context)
 
