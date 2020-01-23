@@ -11,6 +11,7 @@ def index(request):
 
 def test(request):
     questions=None
+    name = None
     if request.GET.get('search'):
         search = request.GET.get('search')
         #questions = Queries.objects.filter(query__icontains=search)
