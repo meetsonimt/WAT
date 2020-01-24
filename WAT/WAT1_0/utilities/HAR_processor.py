@@ -38,21 +38,9 @@ class HttpTrafficHAR:
         har_data = proxy.har# json.loads(proxy.har)
         server.stop()
         driver.quit()
-        #return har_data
+        return har_data
         #pprint.pprint(proxy.har)
-        #with open('data.txt', 'w') as outfile:
-        #    json.dump(proxy.har, outfile)
-        results = []
-        for h in har_data['log']['entries']:
-            if term in h['request']['url']:
-                results.append({
-                    'request': h['request'],
-                    'response': h['response'],
-                    'content': h['response']['content']['text']
-                })
-        print("found matching requests:")
-        pprint.pprint(results)
-        #print (json.loads(proxy.har)['log']) # returns a HAR JSON blob       
+          
 
 myobj = HttpTrafficHAR()
 a = myobj.get_HAR("https://docs.python.org/3/reference/lexical_analysis.html","lexical")
