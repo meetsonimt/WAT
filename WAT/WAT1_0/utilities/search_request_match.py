@@ -15,17 +15,17 @@ class SerachData(HttpTrafficHAR):
                     for item in term:
                         if item in row['request']['url'] or item in row.get('request').get('postData',''):
                             search_list.append({
-                                'request': item['request'],
-                                'response': item['response'],
-                                'content': item['response']['content']['text']
+                                'request': item.get('request'),
+                                'response': item.get('response'),
+                                'content': item.get('response').get('content').get('text',"")
                             })
         else:
             for row in data:
                 if term[0] in row['request']['url'] or term[0] in row.get('request').get('postData',''):
                     search_list.append({
-                        'request': row['request'],
-                        'response': row['response'],
-                        'content': row['response']['content']['text']
+                        'request': row.get('request'),
+                        'response': row.get('response'),
+                        'content': row.get('response').get('content').get('text',"")
                         })
        
         #now we have to find search term in content
@@ -51,12 +51,21 @@ class SerachData(HttpTrafficHAR):
             if html.fromstring(temp_content).find('.//*') is not None:
                 doc = html.fromstring(temp_content)
                 if doc.xpath(find_by_keyword_xpath) or doc.xpath(find_by_title_xpath) or doc.xpath(find_by_free_text_xpath):
+                    IsJson = "HTML Response"
                     filter_data_depth_2.append({
                     'request' : data.get('request'),
                     'response' : data.get('response'),
                     'content' : data.get('response').get('content').get('text'),
-                    'IsJson' : False
-                })                
+                    'IsJson' : IsJson
+                })   
+            else: #if we found Response Type other than HTML
+                filter_data_depth_2.append({
+                    'request' : data.get('request'),
+                    'response' : data.get('response'),
+                    'content' : data.get('response').get('content').get('text'),
+                    'IsJson' : "Json Response"
+                })   
+
 
         pprint.pprint(len(filter_data_depth_2))
         with open('data.txt', 'w') as outfile:

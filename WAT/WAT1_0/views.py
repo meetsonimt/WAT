@@ -9,6 +9,7 @@ import pprint
 
 def index(request):
     context = dict()
+    json_data = dict()
     term = None
     if request.GET.get('URL'):
         url = request.GET.get('URL')
@@ -23,13 +24,13 @@ def index(request):
             'term' : term,
             'radio_value' : radio_value
         })
-    obj = SerachData()
-    data = obj.get_HAR(url,term)
-    pprint.pprint(obj.searching_filter_records(data,"usb"))
+        obj = SerachData()
+        data = obj.get_HAR(url,term)
+    #pprint.pprint(obj.searching_filter_records(data,"usb"))
     
-    json_load = obj.searching_filter_records(data,term)
-    dump_josn = json.dumps(json_load)
-    json_data = json.loads(dump_josn)
+        json_load = obj.searching_filter_records(data,term)
+        dump_josn = json.dumps(json_load)
+        json_data = json.loads(dump_josn)
     return render(request,"index.html",{'josn_data':json_data})
 
 def test(request):

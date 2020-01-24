@@ -94,7 +94,7 @@
                 <table id = "table" class = "table table-bordered ">
                     <thead class = "alert-success">
                         <tr>
-                            <th>URL</th>
+                            <th>Request</th>
                             <th>Response</th>
                             <th>Json</th>
                             <th>Result Type</th>
@@ -104,9 +104,9 @@
                     <tbody>                       
                         {% for i in josn_data%}
                         <tr>
-                            <td class="jsonContent">{{i.request}}</td>
+                            <td class="har jsonContent">{{i.request}}</td>
                             <td class="jsonContent">{{i.response}}</td>
-                            <td class="har jsonContent">{{i.content}}</td>
+                            <td class="jsonContent">{{i.content}}</td>
                             <td>{{i.IsJson}}</td>
                             <td><button type="button" class="btn btn-success copyToClip">Copy to Clip</button></tc>
                         </tr>   
