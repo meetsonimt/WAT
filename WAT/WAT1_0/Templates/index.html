@@ -99,41 +99,19 @@
                             <th>Json</th>
                         </tr>
                     </thead>
-                    <tbody>
-                       
-                        {% for rel in result %}
+                    <tbody>                       
+                        {% for i in josn_data%}
                         <tr>
-                            <td>{{ re. }}</td>
-                            <td>{{ member.lastname }}</td>
-                            <td>{{ member.age }}</td>
-                            <td>{{ member.email }}</td>
-                            <td>{{ member.address }}</td>
-                        </tr>
-                        {% endfor %}
+                            <td>{{i.request}}</td>
+                            <td>Response</td>
+                            <td>HAR</td>
+                        </tr>   
+                        {% endfor %}   
                     </tbody> 
-                    </tbody>
-                    
+                    </tbody>                    
                 </table>                             
             </div>
-        </div>
-        
-    </div>  
-     {% if url %}	
-    Your Url Is: {{ url }}<br/>	
-    {%if term %}	
-    Your Term Is : {{term}}<br/>	
-    {%endif%}	
-    {%if IsSearch %}	
-    You are searching : {{IsSearch}}<br/>	
-    {%endif%}	
-    {%if ISMonitor %}	
-    You are Monitoring : {{ISMonitor}}<br/>	
-    {%endif%}	
-    {% endif %} 
-    {% comment %} <div class="footer-div"></div> {% endcomment %}
-  
-    <script>
-      
-    </script>
+        </div>        
+    </div>      
 </body>
 </html>
