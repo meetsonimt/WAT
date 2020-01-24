@@ -1,4 +1,4 @@
-from HAR_processor import HttpTrafficHAR
+from WAT1_0.utilities.HAR_processor import HttpTrafficHAR
 import pprint
 from lxml import html
 import json
@@ -61,7 +61,4 @@ class SerachData(HttpTrafficHAR):
         pprint.pprint(len(filter_data_depth_2))
         with open('data.txt', 'w') as outfile:
             json.dump(filter_data_depth_2, outfile)
-        results = []
-obj = SerachData()
-data = obj.get_HAR("https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=usb&_sacat=0","usb")
-obj.searching_filter_records(data,"usb")
+        return filter_data_depth_2

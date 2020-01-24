@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from WAT1_0.utilities.HAR_processor import HttpTrafficHAR
+from WAT1_0.utilities.search_request_match import SerachData
 
 # Create your views here.
 from django.http import HttpResponse
 import json
+import pprint
 
 def index(request):
     context = dict()
@@ -20,6 +23,9 @@ def index(request):
             'term' : term,
             'radio_value' : radio_value
         })
+        obj = SerachData()
+        data = obj.get_HAR("https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=usb&_sacat=0","usb")
+        pprint.pprint(obj.searching_filter_records(data,"usb"))
     
     json_load = {"entries": [
       {
