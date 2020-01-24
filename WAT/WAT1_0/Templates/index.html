@@ -9,7 +9,7 @@
     <link href="/static/content/custom.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="/static/scripts/custom.js"></script>
     <style>
@@ -105,9 +105,9 @@
                         {% for i in josn_data%}
                         <tr>
                             <td class="jsonContent">{{i.request}}</td>
-                            <td class="jsonContent">{{i.request}}</td>
-                            <td class="har jsonContent">{{i.request}}</td>
-                            <td>Result Type</td>
+                            <td class="jsonContent">{{i.response}}</td>
+                            <td class="har jsonContent">{{i.content}}</td>
+                            <td>{{i.IsJson}}</td>
                             <td><button type="button" class="btn btn-success copyToClip">Copy to Clip</button></tc>
                         </tr>   
                         {% endfor %}   
