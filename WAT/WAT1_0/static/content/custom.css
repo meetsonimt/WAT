@@ -103,3 +103,9 @@ table.dataTable thead th, table.dataTable thead td{
 table.dataTable tbody th, table.dataTable tbody td{
     word-break: break-all;
 }
+table.dataTable tbody th, table.dataTable tbody td:last-child{
+    word-break: unset;
+}
+#table>tbody>tr>td>button>.copyToClip{
+    color:black;
+}

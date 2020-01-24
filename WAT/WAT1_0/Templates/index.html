@@ -3,18 +3,18 @@
 <head>
     <title>Website Analysis Tool</title>
     <meta charset="utf-8" />
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/content/custom.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.js">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="/static/scripts/custom.js"></script>
     <style>
-       
     </style>
     {% load static %}
-   
 </head>
 <body class="background-color">
     <nav class="navbar navbar-expand-md">
@@ -97,14 +97,18 @@
                             <th>URL</th>
                             <th>Response</th>
                             <th>Json</th>
+                            <th>Result Type</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>                       
                         {% for i in josn_data%}
                         <tr>
-                            <td>{{i.request}}</td>
-                            <td>Response</td>
-                            <td>HAR</td>
+                            <td class="jsonContent">{{i.request}}</td>
+                            <td class="jsonContent">{{i.request}}</td>
+                            <td class="har jsonContent">{{i.request}}</td>
+                            <td>Result Type</td>
+                            <td><button type="button" class="btn btn-success copyToClip">Copy to Clip</button></tc>
                         </tr>   
                         {% endfor %}   
                     </tbody> 
