@@ -15,6 +15,14 @@
     <style>
     </style>
     {% load static %}
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                scrollY:'50vh',
+                scrollCollapse: false,                
+                } );
+            } );
+    </script>
 </head>
 <body class="background-color">
     <nav class="navbar navbar-expand-md">
@@ -91,14 +99,15 @@
         </div>
         <div class="row">
             <div class="col-md-12" style="padding-left: 0px;"> 
-                <table id = "table" class = "table table-bordered ">
+                <div class="table-responsive">                    
+                <table id = "example" class = "table table-bordered" style="width:100%">
                     <thead class = "alert-success">
                         <tr>
-                            <th>Request</th>
-                            <th>Response</th>
-                            <th>Json</th>
-                            <th>Result Type</th>
-                            <th>Action</th>
+                            <th style="width:26%;">Request</th>
+                            <th style="width:26%;">Response</th>
+                            <th style="width:27%;">Content</th>
+                            <th style="width:11%;">Result Type</th>
+                            <th style="width:10%;">Action</th>
                         </tr>
                     </thead>
                     <tbody>                       
@@ -108,12 +117,12 @@
                             <td class="jsonContent">{{i.response}}</td>
                             <td class="jsonContent">{{i.content}}</td>
                             <td>{{i.IsJson}}</td>
-                            <td><button type="button" class="btn btn-success copyToClip">Copy to Clip</button></tc>
+                            <td><button type="button" class="btn btn-success copyToClip">Copy to Clipboard</button></tc>
                         </tr>   
                         {% endfor %}   
-                    </tbody> 
-                    </tbody>                    
-                </table>                             
+                    </tbody>                                       
+                </table>
+            </div>                             
             </div>
         </div>        
     </div>      
