@@ -29,9 +29,9 @@ class HttpTrafficHAR:
         driver = webdriver.Firefox(firefox_profile=profile)
         proxy.new_har(term,options={'captureHeaders': True,'captureContent':True})
         driver.get(url)# replace with url
-        with open('data.txt', 'w') as outfile:
-            json.dump(proxy.har, outfile)
-        results = []
+        #with open('data.txt', 'w') as outfile:
+        #    json.dump(proxy.har, outfile)
+        #results = []
         #print(type(proxy.har))
         #har_parser = HarParser(json.loads(str(proxy.har).replace("\'","\"")))
         #har_data = json.loads(str(proxy.har).replace("\'","\""))
@@ -42,6 +42,6 @@ class HttpTrafficHAR:
         #pprint.pprint(proxy.har)
           
 
-myobj = HttpTrafficHAR()
-a = myobj.get_HAR("https://docs.python.org/3/reference/lexical_analysis.html","lexical")
+#myobj = HttpTrafficHAR()
+#a = myobj.get_HAR("https://docs.python.org/3/reference/lexical_analysis.html","lexical")
 #print(a)
