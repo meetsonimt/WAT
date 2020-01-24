@@ -97,3 +97,9 @@ table.dataTable thead th, table.dataTable thead td{
 .dataTables_wrapper .dataTables_paginate .paginate_button{
     color:white !important;
 }
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    background: linear-gradient(to bottom, #01965f 0%, #01e26c 100%) !important;
+}
+table.dataTable tbody th, table.dataTable tbody td{
+    word-break: break-all;
+}

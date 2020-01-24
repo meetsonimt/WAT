@@ -14,8 +14,7 @@
        
     </style>
     {% load static %}
-    <!--{% load django_tables2 %}-->
-    
+   
 </head>
 <body class="background-color">
     <nav class="navbar navbar-expand-md">
@@ -92,7 +91,7 @@
         </div>
         <div class="row">
             <div class="col-md-12" style="padding-left: 0px;"> 
-                <table id = "table" class = "table table-bordered">
+                <table id = "table" class = "table table-bordered ">
                     <thead class = "alert-success">
                         <tr>
                             <th>URL</th>
@@ -101,159 +100,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                       
+                        {% for rel in result %}
                         <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                        <tr>
-                            <td>Response</td>
-                            <td>Json</td>
-                            <td>URL</td>
-                        </tr>
-                    </tbody>
-                    {% comment %} <tbody>
-                        {% for member in all_members %}
-                        <tr>
-                            <td>{{ member.firstname }}</td>
+                            <td>{{ re. }}</td>
                             <td>{{ member.lastname }}</td>
                             <td>{{ member.age }}</td>
                             <td>{{ member.email }}</td>
                             <td>{{ member.address }}</td>
                         </tr>
                         {% endfor %}
-                    </tbody> {% endcomment %}
+                    </tbody> 
+                    </tbody>
+                    
                 </table>                             
             </div>
         </div>
