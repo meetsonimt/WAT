@@ -12,7 +12,7 @@ def index(request):
     context = dict()
     json_data = dict()
     term = None
-    
+    json_load = None
     if request.GET.get('URL'):
         url = request.GET.get('URL')
         radio_value = request.GET.get('inlineDefaultRadiosExample')

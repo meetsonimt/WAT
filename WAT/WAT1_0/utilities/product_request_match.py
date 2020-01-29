@@ -1,4 +1,4 @@
-from HAR_processor import HttpTrafficHAR
+from WAT1_0.utilities.HAR_processor import HttpTrafficHAR
 import pprint
 import json
 from lxml import html

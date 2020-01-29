@@ -23,11 +23,27 @@ $(document).ready(function () {
         $temp.remove();
     });
     $("#table tbody tr td .jsonContent").JSONView();
+    $("#goBtn").click(function() {
 
+    });
 });
 $(document).ready(function () {
     $(".proxy").hide();
     $("#term").hide();
+    $('#submitForm').submit(function () {
+        var radioValue = $("input[name='inlineDefaultRadiosExample']:checked").val();
+        if (!radioValue ) {
+            alert('Please select option');
+            return false;
+        }
+        else{
+            var name = $.trim($('#URL').val());
+            if (name  === '') {
+                alert('URL-field is empty.');
+                return false;
+            }
+        }
+    });
 });
 
 $(document).ready(function () {
